@@ -32,11 +32,11 @@ pipeline {
         //     }
         // }
 
-        stage('Cleanup') {
-            steps {
-                sh 'buildah rmi $IMAGE_NAME'
-            }
-        }
+        // stage('Cleanup') {
+        //     steps {
+        //         sh 'buildah rmi $IMAGE_NAME'
+        //     }
+        // }
 
         // stage('Push Image (Optional)') {
         //     steps {
