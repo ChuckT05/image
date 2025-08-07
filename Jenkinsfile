@@ -1,11 +1,15 @@
 pipeline {
     agent any 
 
+    environment {
+        IMAGE_NAME = 'image:latest'
+    }
+
     stages {
         stage('Build Image with Buildah') {
             steps {
                 script {
-                    sh 'buildah bud -t image:latest .' 
+                    sh 'buildah bud -f Dockerfile -t $IMAGE_NAME .' 
                     // Ensure Buildah is installed and accessible on the Jenkins agent.
                     // You might need to configure the agent with Buildah or use a container agent with Buildah pre-installed.
 
