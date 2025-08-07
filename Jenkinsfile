@@ -26,6 +26,18 @@ pipeline {
             }
         }
 
+        // stage('Push Image') {
+        //     steps {
+        //         sh 'buildah push $IMAGE_NAME docker://docker.io/myuser/my-app:latest'
+        //     }
+        // }
+
+        stage('Cleanup') {
+            steps {
+                sh 'buildah rmi $IMAGE_NAME'
+            }
+        }
+
         // stage('Push Image (Optional)') {
         //     steps {
         //         script {
